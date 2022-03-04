@@ -3,11 +3,11 @@
   <title>芋泥の宝藏屋</title>
   
   <subtitle>dwhの博客</subtitle>
-  <link href="https://dguthubq.github.io/atom.xml" rel="self"/>
+  <link href="https://dgithubq.github.io/atom.xml" rel="self"/>
   
-  <link href="https://dguthubq.github.io/"/>
+  <link href="https://dgithubq.github.io/"/>
   <updated>2022-03-04T12:08:52.258Z</updated>
-  <id>https://dguthubq.github.io/</id>
+  <id>https://dgithubq.github.io/</id>
   
   <author>
     <name>dwh520dyn</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>测试文章</title>
-    <link href="https://dguthubq.github.io/posts/2.html"/>
-    <id>https://dguthubq.github.io/posts/2.html</id>
+    <link href="https://dgithubq.github.io/posts/2.html"/>
+    <id>https://dgithubq.github.io/posts/2.html</id>
     <published>2022-03-04T06:00:00.000Z</published>
     <updated>2022-03-04T12:08:52.258Z</updated>
     
@@ -37,19 +37,19 @@
     
     
     
-    <category term="生活" scheme="https://dguthubq.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://dgithubq.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="试验" scheme="https://dguthubq.github.io/tags/%E8%AF%95%E9%AA%8C/"/>
+    <category term="试验" scheme="https://dgithubq.github.io/tags/%E8%AF%95%E9%AA%8C/"/>
     
   </entry>
   
   <entry>
     <title>博客与博主</title>
-    <link href="https://dguthubq.github.io/posts/1.html"/>
-    <id>https://dguthubq.github.io/posts/1.html</id>
+    <link href="https://dgithubq.github.io/posts/1.html"/>
+    <id>https://dgithubq.github.io/posts/1.html</id>
     <published>2021-05-27T13:00:00.000Z</published>
-    <updated>2022-03-04T12:07:45.660Z</updated>
+    <updated>2022-03-04T12:13:36.449Z</updated>
     
     <content type="html"><![CDATA[<p>相遇皆是缘分</p><h3 id="为什么建博客？"><a href="#为什么建博客？" class="headerlink" title="为什么建博客？"></a>为什么建博客？</h3><p>肿么说了! 纯属个人兴趣，好玩，唉，就是玩!嘻嘻! 会有些成就感吧,拥有一个自己的博客写一些自己感兴趣的事或物,不是一件很酷的事嘛!</p><h3 id="展望博客"><a href="#展望博客" class="headerlink" title="展望博客"></a>展望博客</h3><p>我会整理一些个人所学的知识或生活方面有兴趣的事发到博客上供大家观摩</p><h3 id="关于博主"><a href="#关于博主" class="headerlink" title="关于博主"></a>关于博主</h3><p>一位准备放飞理想的有志青年，常年emo，喜欢dyn</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">林深时见鹿，海蓝时见鲸，梦醒时见你<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>溜了溜了！</p>]]></content>
     
@@ -62,10 +62,10 @@
     
     
     
-    <category term="生活" scheme="https://dguthubq.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://dgithubq.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="想法" scheme="https://dguthubq.github.io/tags/%E6%83%B3%E6%B3%95/"/>
+    <category term="想法" scheme="https://dgithubq.github.io/tags/%E6%83%B3%E6%B3%95/"/>
     
   </entry>
   
