@@ -69,4 +69,29 @@
     
   </entry>
   
+  <entry>
+    <title>如何在GitHub上搭建hexo博客</title>
+    <link href="https://dgithubq.github.io/posts/3.html"/>
+    <id>https://dgithubq.github.io/posts/3.html</id>
+    <published>2022-03-01T10:39:00.000Z</published>
+    <updated>2022-03-05T12:56:04.534Z</updated>
+    
+    <content type="html"><![CDATA[<p>介绍：<br>这是一篇关于如何搭建hexo博客的文章。</p><p>一.大致所需要用到的工具或者网站：<br>1.GitHub.com（网站）  注：此网站是一个国外的站点，有时候进去会比较慢，多刷新几次一般都能进。<br>2.安装Git Bash<br>3.安装hexo</p><p>二.关于搭建hexo主要分为以下的几个步骤：<br>1.搭建好上述的工具<br>2.搭建一个GitHub仓库<br>3.GitHub上生成一个SSH Keys<br>4.生成本地博客的内容<br>5.发布到互联网上</p><p>三.实际操作<br>1.安装Git和hexo：<br>        这个东西直接去官方网站下载就行了。git官网：<a href="https://git-scm.com/">https://git-scm.com/</a>   hexo官网： <a href="https://hexo.io/zh-cn/%E3%80%82">https://hexo.io/zh-cn/。</a><br>2.搭建GitHub仓库：<br>        在注册好GitHub账号之后，然后去创建一个新的仓库(点击此处的new)<br>        <img src="https://s2.loli.net/2022/03/05/ufapyQUNXJ7CzIh.png"><br>        然后此处的Repository name和你的Owner要一样(比如，我的owner是dgithubq,那么name就填dgithubq.github.io)。页面其他的选项默认即可。<br>        <img src="https://s2.loli.net/2022/03/05/oY1fNxZgEMJ6mwp.png"><br>        然后Add a README file需要勾选上。<br>        到此，点击创建之后，那么你的存储库就已经建成功了，你的博客网址就是你刚才的Repository name。<br>3.生成一个SSH Keys：<br>        这个东西很重要，因为后面上传到网络上面去的时候需要它，所以这一步要仔细一点。但是也不会特别的难。<br>        首先：我们在桌面上进入任何一个文件夹，然后打开下载好的Git Bash，然后我们需要敲打以下的命令来检查ssh是否安装，默认一般是已经安装了：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre><code>    然后敲打第二个命令来生成SSH(引号中填自己的邮箱)：</code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"xxx@xxx"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre><code>    此时会在我们的文件夹中建立一个ssh，一般会存放在C:\用户\Administrator\.ssh中。    找到文件夹之后，打开其中的id_rsa.pub文件，完全复制其中的内容，然后再去打开GitHub。    在个人设置中找到这个地方：    ![](https://s2.loli.net/2022/03/05/c1yMPDjgQO5J4wp.png)    在里面New SSH key，然后会看到以下需要填的内容：    ![](https://s2.loli.net/2022/03/05/zGSFwEV7UThADBQ.png)    Title中随便取，无所谓，key中填入刚才.pub文件里复制的内容，然后在git bash中输入以下命令测试是否绑定成功即可：</code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>4.生成本地博客：<br>        去一个自己喜欢的地方建一个文件夹，然后在此文件夹中打开git bash,然后开始敲命令：<br>        (1)初始化hexo</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果没有出现 INFO Start blogging with Hexo！ 就说明有问题，重新执行上面的命令即可，成功之后，刚才的文件夹中会多出很多文件，比如：<br>        <img src="https://s2.loli.net/2022/03/05/owY23BOdip7jq8W.png"><br>        (2)静态生成hexo本地页面</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>成功后会出现一个Http://xxx的网址，可以去网页中打开，这就是同志们博客的本地生成的页面。</p><p>5.将博客发布到互联网上：<br>        (1)在上一步中生成的文件中，打开_config.yml文件，修改deploy中的东西，一般在最下面。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deploy:    type: <span class="token function">git</span>    repository: https://github.com/XXXXXX/XXXXX.github.io.git<span class="token punctuation">(</span>这里是你的GitHub仓库的地址<span class="token punctuation">)</span>    branch: main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><pre><code>    (2)在你的博客文件下打开git bash输入以下命令</code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre><code>    这是安装hexo-deployer-git自动部署工具</code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre><code>    生成页面的命令</code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><pre><code>    上传到GitHub仓库(很多人第一次上传，由于GitHub是一个国外的服务器，所以第一次会非常难成功，如果没有弹出输入GitHub账号的弹窗，请多试验几次，总会成功的，up主命不好，试了很多次才成功，总之坚持就是胜利！)    出现这个就是成功了：    ![](https://s2.loli.net/2022/03/05/Kb6NrcswUgy31u5.png)    这第一个弹窗是输入用户名，下面还有一个弹窗需要注意了！！！！    出现这个弹窗之后，要去到GitHub中个人设置里找到Developer setting开发者设置中创建一个令牌，随便取一个名字，权限为了减少麻烦，建议全选，然后把出现的序列号填入第二个弹窗中。(千万不要直接输入GitHub的密码，可能会导致错误，一旦错误，以上步骤又要重来)    ![](https://s2.loli.net/2022/03/05/PZ3DCt4bFgI1GzY.png)    上传成功之后，你的博客就传到互联网上了，你的博客网址就是你的仓库名。</code></pre><p>总结：<br>以上就是本人自己创建博客的步骤，个人觉得比较详细，应该不会有太大问题，祝各位好运啦~~~!</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;介绍：&lt;br&gt;这是一篇关于如何搭建hexo博客的文章。&lt;/p&gt;
+&lt;p&gt;一.大致所需要用到的工具或者网站：&lt;br&gt;1.GitHub.com（网站）  注：此网站是一个国外的站点，有时候进去会比较慢，多刷新几次一般都能进。&lt;br&gt;2.安装Git Bash&lt;br&gt;3.安装hexo</summary>
+      
+    
+    
+    
+    <category term="技术 学习" scheme="https://dgithubq.github.io/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="技术 操作 想法" scheme="https://dgithubq.github.io/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E6%83%B3%E6%B3%95/"/>
+    
+  </entry>
+  
 </feed>
