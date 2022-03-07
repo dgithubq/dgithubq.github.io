@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java泛型入门</title>
+      <link href="/posts/5.html"/>
+      <url>/posts/5.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="泛型的理解和好处"><a href="#泛型的理解和好处" class="headerlink" title="泛型的理解和好处"></a>泛型的理解和好处</h2><ol><li>编译时，检查添加元素的类型，提高了安全性</li><li>减少了类型转换次数，提高了效率</li><li>不再提示编译警告</li></ol><h2 id="泛型介绍"><a href="#泛型介绍" class="headerlink" title="泛型介绍"></a>泛型介绍</h2><p>泛（广泛）型（类型）=&gt;<code>Integer,String,Dog</code></p><ol><li>泛型又叫参数化类型，是<code>jdk5.0</code>出现的新特性，解决数据类型的安全性问题。</li><li>在类声明或实例化时只要制定好需要的具体类型即可。</li><li>JAVA泛型可以保证如果程序在编译时没有警告，运行时就不会产生<code>ClassCastException</code>异常，同时，代码更加简洁。</li><li>泛型的作用是：可以在声明类时通过一个标识表示类中的某一个属性的类型，或者是某个方法的返回值的类型，或者是参数类型。</li></ol><h2 id="泛型的语法"><a href="#泛型的语法" class="headerlink" title="泛型的语法"></a>泛型的语法</h2><h3 id="泛型的声明"><a href="#泛型的声明" class="headerlink" title="泛型的声明"></a>泛型的声明</h3><p>其中，T,K,V不代表值，而是表示类型</p><p>任何字母都可以。</p><pre class="line-numbers language-none"><code class="language-none">interface 接口&lt;T&gt;{}interface 接口&lt;T,V&gt;{}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="泛型的实例化"><a href="#泛型的实例化" class="headerlink" title="泛型的实例化"></a>泛型的实例化</h3><p>要在类名后面指定类型参数的值。例如：</p><pre class="line-numbers language-none"><code class="language-none">List&lt;String&gt; strList = new ArrayList&lt;String&gt;();Iterator&lt;Customer&gt; iterator = customers.iterator();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="泛型使用的细节"><a href="#泛型使用的细节" class="headerlink" title="泛型使用的细节"></a>泛型使用的细节</h2><ol><li><p>注意泛型使用的时候是加入引用类型不是数据类型，比如，加入<code>Integer</code>是正确的，加入<code>int</code>就错误。</p></li><li><p>在指定泛型具体类型后，可以传入该类型或者子类类型</p></li><li><p>泛型使用形式</p><pre class="line-numbers language-none"><code class="language-none">List&lt;Integer&gt;list1 = new ArrayList&lt;Integer&gt;();List&lt;Integer&gt;list2 = new ArrayList&lt;&gt;();[说明：]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>如果我们这样写 <code>List list3 = new ArrayList();</code> 默认给它的泛型是<code>&lt;E&gt; E就是Object</code>。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 java泛型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>集合的基础体系</title>
       <link href="/posts/4.html"/>
       <url>/posts/4.html</url>
@@ -13,14 +38,14 @@
       
       <categories>
           
-          <category> 技术 学习 </category>
+          <category> 技术 学习 java </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 技术 操作 学习 </tag>
+            <tag> 技术 操作 学习 java集合 </tag>
             
         </tags>
       
