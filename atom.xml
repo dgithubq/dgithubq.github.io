@@ -6,7 +6,7 @@
   <link href="https://dgithubq.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgithubq.github.io/"/>
-  <updated>2022-03-09T12:53:39.258Z</updated>
+  <updated>2022-03-09T12:56:27.497Z</updated>
   <id>https://dgithubq.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java泛型入门</title>
+    <title>JavaIO流入门</title>
     <link href="https://dgithubq.github.io/posts/6.html"/>
     <id>https://dgithubq.github.io/posts/6.html</id>
     <published>2022-03-09T13:00:00.000Z</published>
-    <updated>2022-03-09T12:53:39.258Z</updated>
+    <updated>2022-03-09T12:56:27.497Z</updated>
     
     <content type="html"><![CDATA[<h3 id="IO流（文件）"><a href="#IO流（文件）" class="headerlink" title="IO流（文件）"></a>IO流（文件）</h3><h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><p>文件是保存数据的地方</p><h4 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h4><p>文件在程序中是以流的形式来操作的</p><p><img src="https://s2.loli.net/2022/03/09/fE3TOhRjoBI6kCc.png"></p><p>流：数据在数据源(文件)和程序(内存)直接经历的路径</p><p>输入流：数据从数据源(文件)到程序(内存)的路径</p><p>输出流：数据从程序(内存)到数据源(文件)的路径</p><h4 id="常用的文件操作"><a href="#常用的文件操作" class="headerlink" title="常用的文件操作"></a>常用的文件操作</h4><p>创建文件对象相关构造器和方法</p><p>相关方法：</p><pre class="line-numbers language-none"><code class="language-none">new File(String pathname)//根据路径构建一个File对象new File(File parent,String child)//根据父目录文件+子路径构建new File(String parent,String child)//根据父目录+子路径构建createNewFile //创建新文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>获取文件的相关信息</p><ol><li>获取文件名字：<code>file.getName()</code></li><li>获取文件绝对路径：<code>file.getAbsolutePath()</code></li><li>获取文件父目录：<code>file.getParent()</code></li><li>文件大小(按字节统计)：<code>file.length()</code></li><li>判断文件是否存在：<code>file.exists()</code></li><li>判断是否是一个文件：<code>file.isFile()</code></li><li>判断是否是一个目录：<code>file.isDirectory()</code></li></ol><h4 id="目录的操作和文件的删除"><a href="#目录的操作和文件的删除" class="headerlink" title="目录的操作和文件的删除"></a>目录的操作和文件的删除</h4><p>创建一级目录：<code>mkdir()</code></p><p>创建多级目录：<code>mkdirs()</code></p><p>删除空目录或者文件：<code>delete()</code></p>]]></content>
     
