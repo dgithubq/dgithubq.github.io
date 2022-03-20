@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java方法的调用</title>
+      <link href="/posts/7.html"/>
+      <url>/posts/7.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="方法调用的细节"><a href="#方法调用的细节" class="headerlink" title="方法调用的细节"></a>方法调用的细节</h3><h4 id="同类中方法对方法的调用"><a href="#同类中方法对方法的调用" class="headerlink" title="同类中方法对方法的调用"></a>同类中方法对方法的调用</h4><p>同类中非静态方法调用同类的其他方法，可以直接方法名调用</p><p>静态方法不能访问非静态成员（变量和方法）</p><h4 id="不同类之间方法的调用"><a href="#不同类之间方法的调用" class="headerlink" title="不同类之间方法的调用"></a>不同类之间方法的调用</h4><p>在外部调用静态方法时，可以使用”类名.方法名”的方式，也可以使用”对象名.方法名”的方式。</p><p>实例方法只有“对象名.方法名”这种方式。也就是说，调用静态方法可以无需创建对象。（即创建需要调用的方法的类的对象，然后用对象调用）</p><pre class="line-numbers language-none"><code class="language-none">class A{  public void pa(){}}class B{A a1 = new A(); public void b(){  a.pa(); }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="传参机制"><a href="#传参机制" class="headerlink" title="传参机制"></a>传参机制</h4><p>java中，基本数据类型传参，是按值拷贝，形参不会影响实参。</p><p>引用类型传参是按照地址传参，形参会影响实参。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 javaI方法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaIO流入门</title>
       <link href="/posts/6.html"/>
       <url>/posts/6.html</url>
