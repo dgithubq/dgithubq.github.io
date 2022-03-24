@@ -6,7 +6,7 @@
   <link href="https://dgithubq.github.io/atom.xml" rel="self"/>
   
   <link href="https://dgithubq.github.io/"/>
-  <updated>2022-03-20T13:41:51.762Z</updated>
+  <updated>2022-03-24T03:18:45.652Z</updated>
   <id>https://dgithubq.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java内部类</title>
+    <link href="https://dgithubq.github.io/posts/8.html"/>
+    <id>https://dgithubq.github.io/posts/8.html</id>
+    <published>2022-03-24T03:14:00.000Z</published>
+    <updated>2022-03-24T03:18:45.652Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><h4 id="内部类简介"><a href="#内部类简介" class="headerlink" title="内部类简介"></a>内部类简介</h4><p>一个类里面包含了一个类结构，这个内部类可以直接访问私有属性，内部类是类的第五大成员（属性、方法、构造器、代码块、内部类）</p><h4 id="内部类的使用"><a href="#内部类的使用" class="headerlink" title="内部类的使用"></a>内部类的使用</h4><p>某个接口或者一个抽象方法只需要用一次的时候，就可以用到内部类。</p><p>使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。——《Think in java》<br>也就是说内部类拥有类的基本特征。(可以继承父类，实现接口)在实际问题中我们会遇到一些接口无法解决或难以解决的问题，此时我们可以使用内部类继承某个具体的或抽象的类，间接解决类无法多继承引起的一系列问题。</p><p>（注：内部类可以嵌套内部类，但是这极大的破坏了代码的结构，不推荐使用。）</p><h4 id="内部类的优点"><a href="#内部类的优点" class="headerlink" title="内部类的优点"></a>内部类的优点</h4><ol><li>内部类可以用多个实例，每个实例都有自己的状态信息，并且与其他外围对象的信息相互独立</li><li>内部类并没有令人迷惑的<code>“is-a”</code>关系，他就是一个独立的实体。</li><li>内部类提供了更好的封装，除了该外围类，其他类都不能访问。</li><li>创建内部类对象的时刻并不依赖于外围类对象的创建。<br>具体来说，内部类信息（属性、方法）可以和外部类重名；内部类是具有类的基本特征的独立实体；可以利用访问修饰符隐藏内部类的实施细节，提供了更好的封装；静态内部类使用时可直接使用，不需先创造外部类。</li></ol><h3 id="内部类分类"><a href="#内部类分类" class="headerlink" title="内部类分类"></a>内部类分类</h3><p>定义在外部类局部位置上（方法里）：</p><ol><li>局部内部类（有类名）</li><li>匿名内部类（无类名）</li></ol><p>定义在外部类的成员位置上：</p><ol><li>成员内部类（没用static修饰）</li><li>静态内部类（使用static修饰）</li></ol><h4 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h4><p>定义在外部类的局部位置，有类名。</p><ol><li><p>可以直接访问外部类的所有成员，包括私有的</p></li><li><p>不能添加访问修饰符，因为它的位置是一个局部变量，局部变量不能用修饰符的，但是可以用final修饰，因为局部变量也可以用final。</p></li><li><p>作用域：仅仅在定义它的方法或者代码块里。</p></li><li><p>局部内部类访问直接访问外部类的成员</p></li><li><p>外部类访问局部内部类，要先创建对象（在外部类里创建内部类的对象，在<code>main</code>方法创建外部类对象，用外部类对象调用内部类的代码块或者定义它的方法），再访问，而且必须在作用域内。</p></li><li><p>外部其他类不能访问局部内部类（因为局部内部类地位是一个局部变量）</p></li><li><p>如果外部类和局部内部类的成员重名时，默认遵循就近原则，如果想要访问外部类的成员，可以使用（外部类名.this.成员）去访问</p><pre class="line-numbers language-none"><code class="language-none">System.out.println("外部类的n2=" + 外部类名.this.n2);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><h4 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h4><ol><li>匿名内部类申明的地点和局部内部类一样，都是在方法或者代码块中，地位都等价于局部变量，因此在局部内部类中的限制在匿名内部类中一样适用</li><li>匿名内部类也可以直接访问外部类的所有成员，包括私有的</li><li>不能添加任何的访问修饰符</li><li>作用域：在整个方法或者代码块</li><li>可以直接访问外部类的成员</li><li>外部类访问匿名内部类，要先创建对象（在外部类里创建内部类的对象，在<code>main</code>方法创建外部类对象，用外部类对象调用内部类的代码块或者定义它的方法），再访问，而且必须在作用域内。</li><li>外部其他类不能访问局部内部类（因为局部内部类地位是一个局部变量）</li><li>如果外部类和局部内部类的成员重名时，默认遵循就近原则，如果想要访问外部类的成员，可以使用（外部类名.this.成员）去访问</li></ol><h5 id="匿名内部类的使用"><a href="#匿名内部类的使用" class="headerlink" title="匿名内部类的使用"></a>匿名内部类的使用</h5><ol><li><p>被当做实参，直接传递</p><pre class="line-numbers language-none"><code class="language-none">public static void main(String[] args) {f1(new IL(){public void show(){System.out.println("xxx");}});}public static void f1(IL il){il.show();}interface IL{public void show();}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><h4 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h4><ol><li><p>可以用任何的修饰符</p></li><li><p>内部类的内部不能有静态信息</p></li><li><p>内部类也是类，可以继承，可重写，可以重载，<code>this</code> 和 <code>super</code> 可以使用。</p></li><li><p>内部类可以直接使用外部类的任何信息</p></li><li><p>其它类如何访问内部类：</p><pre class="line-numbers language-none"><code class="language-none">Outer outer = new Outer();//创造内部类对象Outer.Inner inner = outer.new Inner();inner.innerShow();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>成员内部类认为是外部类的成员信息。</p></li></ol><h4 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h4><p>静态内部类是内部类中一个比较特殊的情况，<code>Java</code> 文档中是这样描述静态内部类的：一旦内部类使用 <code>static</code> 修饰，那么此时这个内部类就升级为顶级类。<br>也就是说，除了写在一个类的内部以外，静态内部类具备所有外部类的特性。</p><ol><li>静态内部类也是定义在外部类的成员位置上，而且有<code>static</code>修饰。</li><li>可以直接访问外部类所有的静态成员，包括私有的，但是不能访问非静态成员。</li><li>可以添加任何的修饰符。</li><li>作用域：和成员内部类一样，作用整个类体</li><li>静态内部类访问外部类静态成员：直接用</li><li>外部类访问静态内部类：创建对象，再访问</li><li>其他类访问静态内部类：利用 外部类.内部类 引用 = new 外部类.内部类(); 然后利用 引用.成员信息(属性、方法) 调用。</li><li>外部类和内部类成员同名，遵循就近原则，如要访问外部类成员，则使用（外部类.成员）访问。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;内部类&quot;&gt;&lt;a href=&quot;#内部类&quot; class=&quot;headerlink&quot; title=&quot;内部类&quot;&gt;&lt;/a&gt;内部类&lt;/h2&gt;&lt;h4 id=&quot;内部类简介&quot;&gt;&lt;a href=&quot;#内部类简介&quot; class=&quot;headerlink&quot; title=&quot;内部类简介&quot;&gt;&lt;/a&gt;</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java" scheme="https://dgithubq.github.io/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java/"/>
+    
+    
+    <category term="技术 操作 学习 java内部类" scheme="https://dgithubq.github.io/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-java%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Java方法的调用</title>
