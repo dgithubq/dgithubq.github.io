@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java流</title>
+      <link href="/posts/9.html"/>
+      <url>/posts/9.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="节点流和处理流"><a href="#节点流和处理流" class="headerlink" title="节点流和处理流"></a>节点流和处理流</h2><h3 id="节点流和处理流的区别和联系"><a href="#节点流和处理流的区别和联系" class="headerlink" title="节点流和处理流的区别和联系"></a>节点流和处理流的区别和联系</h3><ol><li>节点流是底层流，直接和数据源相连接</li><li>处理流包装节点流，既可以消除不同节点流的实现差异，也可以提供更方便的方法来完成输入输出</li><li>处理流对节点流进行包装，使用了修饰器设计模式，不会直接与数据源相连</li></ol><h3 id="处理流的功能主要体现"><a href="#处理流的功能主要体现" class="headerlink" title="处理流的功能主要体现"></a>处理流的功能主要体现</h3><ol><li>性能的提高：主要以增加缓冲的方式提高输入输出的效率</li><li>操作的便捷：处理流可能提供了一系列便捷的方法来一次输入输出大批量的数据，使用更加方便灵活</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 java流 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java内部类</title>
       <link href="/posts/8.html"/>
       <url>/posts/8.html</url>
