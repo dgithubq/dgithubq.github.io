@@ -6,7 +6,7 @@
   <link href="https://dwhboke.com/atom.xml" rel="self"/>
   
   <link href="https://dwhboke.com/"/>
-  <updated>2022-04-03T02:31:19.630Z</updated>
+  <updated>2022-04-05T02:39:43.655Z</updated>
   <id>https://dwhboke.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>打印流</title>
+    <link href="https://dwhboke.com/posts/10.html"/>
+    <id>https://dwhboke.com/posts/10.html</id>
+    <published>2022-04-05T02:36:00.000Z</published>
+    <updated>2022-04-05T02:39:43.655Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h2><p>打印流只有输出流，没有输入流</p><h3 id="PrintStream"><a href="#PrintStream" class="headerlink" title="PrintStream"></a>PrintStream</h3><p>该类的关系图：<img src="https://s2.loli.net/2022/04/05/QkrXFtYRz9BUdEy.png"></p><ol><li><p>OutputStream是所有字节流的父类，所有PrintStream也是字节流</p></li><li><p>默认情况下，OutputStream打印的位置是显示器(控制台)。</p></li><li><p>用<code>System.setOut(new PrintStream(“  ”))</code>方法修改打印流输出的位置</p></li><li><p>因为print底层使用的是write方法打印，所以可以直接使用write方法来打印，用print和write打印本质是一样的</p></li><li><p>记得关闭流</p></li></ol><h3 id="PrintWrite"><a href="#PrintWrite" class="headerlink" title="PrintWrite"></a>PrintWrite</h3><p>该类的关系图：</p><p><img src="https://s2.loli.net/2022/04/05/3MxbpyVCJgd7nUY.png"></p><ol><li><p>Write是所有字符流的父类，所以PrintWrite是字符流</p></li><li><p>改变打印的位置</p><pre class="line-numbers language-none"><code class="language-none">PrintWriter printWriter = new PrintWriter(new FileWriter("xxxxx"));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>记得关闭流，否则不会进到文件</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;打印流&quot;&gt;&lt;a href=&quot;#打印流&quot; class=&quot;headerlink&quot; title=&quot;打印流&quot;&gt;&lt;/a&gt;打印流&lt;/h2&gt;&lt;p&gt;打印流只有输出流，没有输入流&lt;/p&gt;
+&lt;h3 id=&quot;PrintStream&quot;&gt;&lt;a href=&quot;#PrintStream&quot; cla</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java/"/>
+    
+    
+    <category term="技术 操作 学习 java流" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-java%E6%B5%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Java流</title>

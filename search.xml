@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>打印流</title>
+      <link href="/posts/10.html"/>
+      <url>/posts/10.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="打印流"><a href="#打印流" class="headerlink" title="打印流"></a>打印流</h2><p>打印流只有输出流，没有输入流</p><h3 id="PrintStream"><a href="#PrintStream" class="headerlink" title="PrintStream"></a>PrintStream</h3><p>该类的关系图：<img src="https://s2.loli.net/2022/04/05/QkrXFtYRz9BUdEy.png"></p><ol><li><p>OutputStream是所有字节流的父类，所有PrintStream也是字节流</p></li><li><p>默认情况下，OutputStream打印的位置是显示器(控制台)。</p></li><li><p>用<code>System.setOut(new PrintStream(“  ”))</code>方法修改打印流输出的位置</p></li><li><p>因为print底层使用的是write方法打印，所以可以直接使用write方法来打印，用print和write打印本质是一样的</p></li><li><p>记得关闭流</p></li></ol><h3 id="PrintWrite"><a href="#PrintWrite" class="headerlink" title="PrintWrite"></a>PrintWrite</h3><p>该类的关系图：</p><p><img src="https://s2.loli.net/2022/04/05/3MxbpyVCJgd7nUY.png"></p><ol><li><p>Write是所有字符流的父类，所以PrintWrite是字符流</p></li><li><p>改变打印的位置</p><pre class="line-numbers language-none"><code class="language-none">PrintWriter printWriter = new PrintWriter(new FileWriter("xxxxx"));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>记得关闭流，否则不会进到文件</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 java流 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java流</title>
       <link href="/posts/9.html"/>
       <url>/posts/9.html</url>
