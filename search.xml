@@ -4,6 +4,156 @@
   
     
     <entry>
+      <title>Collections工具类</title>
+      <link href="/posts/16.html"/>
+      <url>/posts/16.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h3><h4 id="Collections工具类的介绍"><a href="#Collections工具类的介绍" class="headerlink" title="Collections工具类的介绍"></a>Collections工具类的介绍</h4><ol><li><code>Collections</code>是一个操作Set、List和Map等集合的工具类</li><li><code>Collections</code>中提供了一系列的静态的方法对集合元素进行排序、查询和修改等操作</li></ol><h4 id="排序操作：（均为static方法）"><a href="#排序操作：（均为static方法）" class="headerlink" title="排序操作：（均为static方法）"></a>排序操作：（均为static方法）</h4><ol><li><code>reverse(List)</code>：反转List中元素的顺序</li><li><code>Shuffle(List)</code>：对List集合元素进行随机排序</li><li><code>sort(List)</code>：根据元素的自然顺序对指定List集合元素按升序排列</li><li><code>sort(List，Comparator)</code>：根据指定的Comparator产生的顺序对List集合元素进行排序</li><li><code>swap(List，int，int)</code>：将指定的list集合中的i处元素和j处元素进行交换</li></ol><h4 id="查找、替换操作"><a href="#查找、替换操作" class="headerlink" title="查找、替换操作"></a>查找、替换操作</h4><ol><li><code>Object max(Collection)</code>：根据元素的自然顺序，返回给定集合中最大的元素</li><li><code>Object max(Collection,Comparator)</code>：根据Comparator指定的顺序，返回给定集合中的最大元素</li><li><code>Object min(Collection)</code></li><li><code>Object min(Collection,Comparator)</code></li><li><code>int frequency(Collection,Object)</code>：返回指定集合中指定元素出现的次数</li><li><code>void copy(List dest,List src)</code>：将src中的内容复制到dest中</li><li><code>boolean replaceAll(List list,Object oldVal,Object newVal)</code>：使用新值替换List对象的所有旧值</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java 集合 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 集合 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>总结-开发中如何选择集合实现类</title>
+      <link href="/posts/15.html"/>
+      <url>/posts/15.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="总结-开发中如何选择集合实现类"><a href="#总结-开发中如何选择集合实现类" class="headerlink" title="总结-开发中如何选择集合实现类"></a>总结-开发中如何选择集合实现类</h2><ol><li>先判断存储的类型（一组对象或者一组键值对）</li><li>一组对象：Collection接口<ol><li>允许重复：List<ol><li>增删多：LinkedList：因为底层维护了一个双向链表</li><li>改查多：ArrayList：底层维护了Object类型的可变数组</li></ol></li><li>不允许重复：Set<ol><li>无序：HashSet：底层是HashMap，维护了一个哈希表（数组+链表+红黑树）</li><li>排序：TreeSet</li><li>插入和取出一致：LinkedHashSet，维护数组+双向链表</li></ol></li></ol></li><li>一组键值对：Map接口<ol><li>键无序：HashMap：底层是哈希表 数组+链表+红黑树</li><li>键排序：TreeMap</li><li>键插入和取出一致：LinkedHashMap</li><li>读取文件：Properties</li></ol></li></ol><h4 id="集合关系图"><a href="#集合关系图" class="headerlink" title="集合关系图"></a>集合关系图</h4><p><img src="https://s2.loli.net/2022/04/23/pQemdzGD431L2EO.png"></p><p><img src="https://s2.loli.net/2022/04/23/ZwrMpxR8qOyXnCa.png"></p><p><img src="https://s2.loli.net/2022/04/23/gV6JZh3HIBEb8ku.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java 集合 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 集合 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Map集合之Hashtable</title>
+      <link href="/posts/14.html"/>
+      <url>/posts/14.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="Hashtable类"><a href="#Hashtable类" class="headerlink" title="Hashtable类"></a>Hashtable类</h3><ol><li>存放的元素是键值对：K-V</li><li>hashtable的键和值都不能为null，否则会抛出NullPointerException</li><li>hashTable使用方法基本上和HashMap一样</li><li>hashTable是线程安全的（synchronized），hashMap是线程不安全的</li><li>底层有数组Hashtable$Entry[]，初始大小为11</li><li>临界值 threshold为：8 = 11*0.75</li><li>扩容是原先大小*2+1</li></ol><h4 id="Hashtable子类：Properties（与I-O流有关）"><a href="#Hashtable子类：Properties（与I-O流有关）" class="headerlink" title="Hashtable子类：Properties（与I/O流有关）"></a>Hashtable子类：Properties（与I/O流有关）</h4><ol><li>Properties继承自Hashtable类并且实现了Map接口，也是使用一种键值对的形式来保存数据</li><li>它的使用特点和Hashtable类似</li><li>Properties还可以用于从xxx.properties文件中，加载数据到Properties类对象，并进行读取和修改</li><li>xxx.properties文件通常是作为配置文件</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java 集合 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 Map集合 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Map接口实现类的特点</title>
+      <link href="/posts/13.html"/>
+      <url>/posts/13.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="Map接口实现类的特点（JDK8）"><a href="#Map接口实现类的特点（JDK8）" class="headerlink" title="Map接口实现类的特点（JDK8）"></a>Map接口实现类的特点（JDK8）</h3><ol><li><code>Map</code>与<code>Collection</code>并列存在，用于保存具有映射关系的数据：<code>Key-Value</code>（双列元素）</li><li><code>Map</code>中的<code>Key</code>和<code>value</code>可以是任何引用类型的数据，会封装到<code>HashMap$Node</code>对象中</li><li>Map中的Key不能重复，否则会替换</li><li>Map中的value可以重复</li><li>Map中Key和value都可以为Null，但是Key只能有一个Null（不可重复）,value可以有多个Null</li><li>常用String作为Map的key</li><li>Key和value之间存在单向一对一的关系，即通过指定的key总能找到对应的value</li><li>Map存放数据，一对k-v是放在一个HashMap$Node中的，因为Node实现了Entry接口，把k-v包装成一个entry存放在EntrySet集合中方便管理</li></ol><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><pre class="line-numbers language-none"><code class="language-none">map.put();map.clear();map.equals();map.get();map.set();map.keySet();map.values();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h4><ol><li><p>用keySet遍历</p><pre class="line-numbers language-none"><code class="language-none">for (Object obj:keySet){            System.out.println(obj +"-"+ map.get(obj));        }        System.out.println("=====================");        Iterator iterator = keySet.iterator();        while(iterator.hasNext()){            Object obj = iterator.next();            System.out.println(obj+"-"+map.get(obj));        }        System.out.println("=====================");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>用value遍历</p><pre class="line-numbers language-none"><code class="language-none">Collection values = map.values();        //增强for        for (Object obj : values){            System.out.println(obj);        }        System.out.println("===============迭代器================");        Iterator iterator1 = values.iterator();        while (iterator1.hasNext()){            System.out.println(iterator1.next());        }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>用EntrySet遍历</p><pre class="line-numbers language-none"><code class="language-none">Set entrySet = map.entrySet();        //增强for        for (Object obj : entrySet){            Map.Entry e = (Map.Entry) obj;            System.out.println(e.getKey()+"-"+e.getValue());        }        System.out.println("====================");        //EntrySet迭代器        Iterator iterator2 = entrySet.iterator();        while (iterator2.hasNext()){            Object next = iterator2.next();            Map.Entry m = (Map.Entry) next;            //System.out.println(next);            System.out.println(m.getKey()+"-"+m.getValue());        }    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol><li>Map接口的常用实现类：HashMap、Hashtable和Properties</li><li>HashMap是Map接口使用频率最高的实现类</li><li>HashMap是以key-val对的形式来存储数据</li><li>Key不能重复，但是值可以重复，允许使用null键和null值</li><li>如果添加相同的Key，则会覆盖原来的key-val，等同于修改。（key不会替换，value会替换）</li><li>与HashSet一样，不保证映射的顺序，因为底层是以hash表的方式来存储的</li><li>HashMap没有实现同步，因此是线程不安全的</li><li><a href="https://blog.csdn.net/weixin_59966683/article/details/119482419%EF%BC%88%E9%9B%86%E5%90%88%E4%B8%8E%E6%98%A0%E5%B0%84%E8%B5%84%E6%96%99%EF%BC%89">https://blog.csdn.net/weixin_59966683/article/details/119482419（集合与映射资料）</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java 集合 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 Map集合 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Set接口的实现类</title>
+      <link href="/posts/12.html"/>
+      <url>/posts/12.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Set接口实现类"><a href="#Set接口实现类" class="headerlink" title="Set接口实现类"></a>Set接口实现类</h2><h3 id="Set特性："><a href="#Set特性：" class="headerlink" title="Set特性："></a>Set特性：</h3><ol><li><p><code>HashSet</code>实现了Set接口</p></li><li><p><code>HashSet</code>实际上就是<code>HashMap</code></p><pre class="line-numbers language-none"><code class="language-none">public HashSet(){map = new HashMap&lt;&gt;();}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li><p>可以存放null，但是只能有一个</p></li><li><p>HashSet不保证元素是有序的，取决于hash后，再确定索引的结果</p></li><li><p>不能有重复的元素，但是可以存放两个同名的不同对象，如下都能加入到set中。</p><pre class="line-numbers language-none"><code class="language-none">set.add(new Dog("Tom"));set.add(new Dog("Tom"));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ol><h3 id="Set一个经典面试题"><a href="#Set一个经典面试题" class="headerlink" title="Set一个经典面试题"></a>Set一个经典面试题</h3><pre class="line-numbers language-none"><code class="language-none">set.add(new String("abc"));set.add(new String("abc"));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>只有第一个abc进入了set中</p><h3 id="Set扩容机制"><a href="#Set扩容机制" class="headerlink" title="Set扩容机制"></a>Set扩容机制</h3><ol><li><code>HashSet</code>底层是<code>HashMap</code></li><li>添加一个元素时，先得到hash值-会转成-&gt;索引值</li><li>找到存储数据表table，看到这个索引位置是否已经存放的有元素</li><li>如果有，则调用<code>equals</code>比较，如果相同则放弃添加，如果不同，则添加到最后</li><li>如果没有，直接加入</li><li>在java8中，如果一条链表的元素个数超过<code>TREEIFY_THRESHOLD</code>（默认是8），并且table的大小&gt;=<code>MIN_TREEIFY_CAPACITY</code>（默认64），就会进行树化（红黑树）</li></ol><h3 id="Set添加元素实现"><a href="#Set添加元素实现" class="headerlink" title="Set添加元素实现"></a>Set添加元素实现</h3><ol><li>先获取元素的哈希值（hashCode方法）</li><li>对哈希值进行运算，得出一个索引值即为要存放在哈希表中的位置号</li><li>如果该位置上没有其他元素，则直接存放，如果位置上已经有其他元素则进行equal判断，如果相等，不添加，如果不等，则通过链表的方式添加</li></ol><h3 id="LinkHashSet"><a href="#LinkHashSet" class="headerlink" title="LinkHashSet"></a>LinkHashSet</h3><ol><li>LinkedHashSet加入顺序和取出元素/数据的顺序是一致的（有序）</li><li>LinkedHashSet底层维护的是一个LinkedHashMap（是HashMap的子类）</li><li>LinkedHashSet底层结构（数组table+双向链表）</li><li>添加第一次时，直接将数组table扩容到16，存放的结点类型是 LinkedHashMa$Entry</li><li>数组是HashMap$Node</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java 集合 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 Set集合 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>构造器传入对象简析</title>
+      <link href="/posts/11.html"/>
+      <url>/posts/11.html</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-none"><code class="language-none">class A {  public void funA() {    System.out.println("haha");  }}class B {  private A a;  B(A a) {    this.a = a;  }  //A a = new A();  public void funB() {    a.funA();  }}class Test02 {  public static void main(String[] args) {    A a = new A();    B b = new B(a);    //B a = new B();    b.funB();  }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这种用法或者模式叫做<strong>代理模式</strong> </p><p>为什么需要代理模式呢？</p><p>打个比方，假设你的 class A的那个方法funcA的功能是购物；通常情况下，你要去购物肯定可以亲自去商场买，这就是你所说的“直接new一个A类然后调用方法”。但是！假设你要买的东西国内没有，大部分情况下你不太可能亲自飞到海外去买吧，这时候你可以选择代购；什么意思呢？</p><p>可以新建一个class C extends A，然后重写funcA方法，这个方法可以帮你去海外购物；于是使用类B就成了这样子：</p><pre class="line-numbers language-none"><code class="language-none">A c = new C(); // 注意这一行，父类A持有了子类的实现！B b = new B(c);b.funcB();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 学习 java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 操作 学习 构造器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>打印流</title>
       <link href="/posts/10.html"/>
       <url>/posts/10.html</url>
@@ -158,12 +308,12 @@
       <link href="/posts/4.html"/>
       <url>/posts/4.html</url>
       
-        <content type="html"><![CDATA[<h3 id="集合框架体系图"><a href="#集合框架体系图" class="headerlink" title="集合框架体系图"></a>集合框架体系图</h3><h4 id="单列集合"><a href="#单列集合" class="headerlink" title="单列集合"></a>单列集合</h4><p><img src="https://s2.loli.net/2022/03/06/J5Cm4nMgj7KLZuE.png"></p><h4 id="双列集合"><a href="#双列集合" class="headerlink" title="双列集合"></a>双列集合</h4><p><img src="https://s2.loli.net/2022/03/06/E2GxDNSkstVJ86j.png"></p><h3 id="集合的优点"><a href="#集合的优点" class="headerlink" title="集合的优点"></a>集合的优点</h3><ol><li>可以<strong>动态保存</strong>任意的多个对象，使用很方便</li><li>提供了一系列方便的操作对象的方法：add、remove、set、get等等</li><li>使用集合进行添加，删除新元素的示意代码简洁明了</li></ol><h3 id="集合简单的使用"><a href="#集合简单的使用" class="headerlink" title="集合简单的使用"></a>集合简单的使用</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>一次放一个数据所以叫单列集合</p><pre class="line-numbers language-none"><code class="language-none">ArrayList arrayList = new ArrayList();arrayList.add("jake");arrayList.add("tom");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>一次放两个数据所以叫双列集合</p><pre class="line-numbers language-none"><code class="language-none">HashMap hashMap = new HashMap();hashMap.put("NO1","北京");hashMap.put("NO2","上海");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="Collection接口和常用方法"><a href="#Collection接口和常用方法" class="headerlink" title="Collection接口和常用方法"></a>Collection接口和常用方法</h3><h4 id="collection接口实现类的特点"><a href="#collection接口实现类的特点" class="headerlink" title="collection接口实现类的特点"></a>collection接口实现类的特点</h4><pre class="line-numbers language-none"><code class="language-none">public interface Collection&lt;E&gt; extends lterable&lt;E&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li><code>collection</code>实现子类可以存放多个元素，每个元素可以是Object</li><li>有些<code>Collection</code>的实现类，可以存放重复的元素，有些不可以</li><li>有些<code>Collection</code>的实现类，有些是有序的(List)，有些不是有序的(Set)</li><li><code>Collection</code>接口没有直接的实现子类，是通过它的子接口<code>Set</code>和<code>List</code>来实现的</li></ol><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ol><li><code>add</code>：添加单个元素</li><li><code>remove</code>：删除指定元素</li><li><code>contains</code>：查找元素是否存在</li><li><code>size</code>：获取元素个数</li><li><code>isEmpty</code>：判断是否为空</li><li><code>clear</code>：清空</li><li><code>addAll</code>：添加多个元素</li><li><code>containsAll</code>：查找多个元素是否都存在</li><li><code>removeAll</code>：删除多个元素</li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="集合框架体系图"><a href="#集合框架体系图" class="headerlink" title="集合框架体系图"></a>集合框架体系图</h3><h4 id="单列集合"><a href="#单列集合" class="headerlink" title="单列集合"></a>单列集合</h4><p><img src="https://s2.loli.net/2022/03/06/J5Cm4nMgj7KLZuE.png"></p><h4 id="双列集合"><a href="#双列集合" class="headerlink" title="双列集合"></a>双列集合</h4><p><img src="https://s2.loli.net/2022/03/06/E2GxDNSkstVJ86j.png"></p><h3 id="集合的优点"><a href="#集合的优点" class="headerlink" title="集合的优点"></a>集合的优点</h3><ol><li>可以<strong>动态保存</strong>任意的多个对象，使用很方便</li><li>提供了一系列方便的操作对象的方法：add、remove、set、get等等</li><li>使用集合进行添加，删除新元素的示意代码简洁明了</li></ol><h3 id="集合简单的使用"><a href="#集合简单的使用" class="headerlink" title="集合简单的使用"></a>集合简单的使用</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>一次放一个数据所以叫单列集合</p><pre class="line-numbers language-none"><code class="language-none">ArrayList arrayList = new ArrayList();arrayList.add("jake");arrayList.add("tom");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>一次放两个数据所以叫双列集合</p><pre class="line-numbers language-none"><code class="language-none">HashMap hashMap = new HashMap();hashMap.put("NO1","北京");hashMap.put("NO2","上海");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="Collection接口和常用方法"><a href="#Collection接口和常用方法" class="headerlink" title="Collection接口和常用方法"></a>Collection接口和常用方法</h3><h4 id="collection接口实现类的特点"><a href="#collection接口实现类的特点" class="headerlink" title="collection接口实现类的特点"></a>collection接口实现类的特点</h4><pre class="line-numbers language-none"><code class="language-none">public interface Collection&lt;E&gt; extends lterable&lt;E&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li><code>collection</code>实现子类可以存放多个元素，每个元素可以是Object</li><li>有些<code>Collection</code>的实现类，可以存放重复的元素，有些不可以</li><li>有些<code>Collection</code>的实现类，有些是有序的(List)，有些不是有序的(Set)</li><li><code>Collection</code>接口没有直接的实现子类，是通过它的子接口<code>Set</code>和<code>List</code>来实现的</li></ol><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ol><li><code>add</code>：添加单个元素</li><li><code>remove</code>：删除指定元素</li><li><code>contains</code>：查找元素是否存在</li><li><code>size</code>：获取元素个数</li><li><code>isEmpty</code>：判断是否为空</li><li><code>clear</code>：清空</li><li><code>addAll</code>：添加多个元素</li><li><code>containsAll</code>：查找多个元素是否都存在</li><li><code>removeAll</code>：删除多个元素</li></ol><h3 id="Vector和ArrayList的比较"><a href="#Vector和ArrayList的比较" class="headerlink" title="Vector和ArrayList的比较"></a>Vector和ArrayList的比较</h3><p><img src="https://s2.loli.net/2022/04/09/HDCExkgSdnGTp4J.png"></p>]]></content>
       
       
       <categories>
           
-          <category> 技术 学习 java </category>
+          <category> 技术 学习 java 集合 </category>
           
       </categories>
       
