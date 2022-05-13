@@ -6,7 +6,7 @@
   <link href="https://dwhboke.com/atom.xml" rel="self"/>
   
   <link href="https://dwhboke.com/"/>
-  <updated>2022-04-23T03:12:09.714Z</updated>
+  <updated>2022-05-13T05:40:23.028Z</updated>
   <id>https://dwhboke.com/</id>
   
   <author>
@@ -15,6 +15,205 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自定义异常</title>
+    <link href="https://dwhboke.com/posts/23.html"/>
+    <id>https://dwhboke.com/posts/23.html</id>
+    <published>2022-05-13T05:40:00.000Z</published>
+    <updated>2022-05-13T05:40:23.028Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><ol><li><p>定义类：自定义异常类需要继承Exception和RuntimeException</p></li><li><p>如果继承Exception，属于编译异常</p></li><li><p>如果继承RuntimeException，属于运行异常，一般来说，继承RuntimeException</p></li><li><pre><code>throw new XXXException("xxx");</code></pre></li></ol><h3 id="throws-和-throw"><a href="#throws-和-throw" class="headerlink" title="throws 和 throw"></a>throws 和 throw</h3><ol><li>throws代表异常处理的一种方式，位置在方法声明处，后面接异常类型</li><li>throw代表手动生成异常对象的关键字，位置在方法体中，后面接异常对象</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;自定义异常&quot;&gt;&lt;a href=&quot;#自定义异常&quot; class=&quot;headerlink&quot; title=&quot;自定义异常&quot;&gt;&lt;/a&gt;自定义异常&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;定义类：自定义异常类需要继承Exception和RuntimeException&lt;/p&gt;
+&lt;/li</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 异常" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E5%BC%82%E5%B8%B8/"/>
+    
+    
+    <category term="技术 操作 学习 异常" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E5%BC%82%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>守护线程</title>
+    <link href="https://dwhboke.com/posts/24.html"/>
+    <id>https://dwhboke.com/posts/24.html</id>
+    <published>2022-05-13T05:40:00.000Z</published>
+    <updated>2022-05-13T05:41:42.579Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h3><ol><li>用户线程：工作线程，线程的任务执行完毕或通知方式结束</li><li>守护线程，一般为工作线程服务，所有的用户线程结束，守护线程自动结束</li><li>最常见的守护线程就是垃圾回收机制</li></ol><h3 id="线程生命周期"><a href="#线程生命周期" class="headerlink" title="线程生命周期"></a>线程生命周期</h3><ol><li><p>新建状态（new）</p></li><li><p>就绪状态（Ready）</p></li><li><p>运行状态（Running）</p></li><li><p>阻塞状态（Blocked）</p></li><li><p>等待状态（Waiting）</p></li><li><p>限时等待状态（Timed Waiting）</p></li><li><p>死亡状态（Terminated）</p><p><img src="https://s2.loli.net/2022/05/07/1OsNh3LRCQyebWI.png"></p></li></ol><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol><li><p>当使用实现Runnable时候，切记类的对象只能声明一个，否则在使用synchronize时，导致synchronize没有用，因为声明多个线程类对象会导致每一个对象单独使用一个run方法，并不会让同一个时刻只让一个对象进入run方法，他们仍然会同时分别进入属于自己的run方法</p></li><li><p>例如，当只new一个对象，多个线程公用一个run，则互斥锁就会生效，控制他们同一时刻只能一个Thread进到run里面</p><p><img src="https://s2.loli.net/2022/05/08/xSklAqeYDC5rIKF.png"></p></li><li><p>当new多个对象，然后每个对象一个Thread时候，就会成为一个Thread单独控制一个run，锁虽然在，但是每一个run有一个单独的Thread进入，因此锁就不会生效</p><p><img src="https://s2.loli.net/2022/05/08/pd9I8kP6ga4BvsO.png"></p></li><li><p>同步方法（非静态）的锁可以是this，也可以是其他对象（要求是同一个对象）</p></li><li><p>同步方法（静态）的锁为当前类本身</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;守护线程&quot;&gt;&lt;a href=&quot;#守护线程&quot; class=&quot;headerlink&quot; title=&quot;守护线程&quot;&gt;&lt;/a&gt;守护线程&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;用户线程：工作线程，线程的任务执行完毕或通知方式结束&lt;/li&gt;
+&lt;li&gt;守护线程，一般为工作线程服务，所有的用户</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 多线程" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+    
+    <category term="技术 操作 学习 多线程" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多线程机制</title>
+    <link href="https://dwhboke.com/posts/22.html"/>
+    <id>https://dwhboke.com/posts/22.html</id>
+    <published>2022-05-13T05:39:00.000Z</published>
+    <updated>2022-05-13T05:41:58.998Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="多线程机制"><a href="#多线程机制" class="headerlink" title="多线程机制"></a>多线程机制</h3><ol><li>主线程不会阻塞</li><li>所有线程都挂掉才会导致进程挂掉</li><li>不是由run方法来产生一个线程，而是由底层中的一个start0方法来产生一个新的线程，这个方法是本地方法，由JVM调用，底层是c/c++</li><li>当start方法调用start0方法后，线程不会立马执行，只是把线程变成 了可运行状态，具体什么时候执行，取决于CPU，由CPU统一调度</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;多线程机制&quot;&gt;&lt;a href=&quot;#多线程机制&quot; class=&quot;headerlink&quot; title=&quot;多线程机制&quot;&gt;&lt;/a&gt;多线程机制&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;主线程不会阻塞&lt;/li&gt;
+&lt;li&gt;所有线程都挂掉才会导致进程挂掉&lt;/li&gt;
+&lt;li&gt;不是由run方法来产</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 多线程" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+    
+    <category term="技术 操作 学习 多线程" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>泛型类容梳理</title>
+    <link href="https://dwhboke.com/posts/21.html"/>
+    <id>https://dwhboke.com/posts/21.html</id>
+    <published>2022-05-13T05:38:00.000Z</published>
+    <updated>2022-05-13T05:38:54.972Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="泛型类容梳理"><a href="#泛型类容梳理" class="headerlink" title="泛型类容梳理"></a>泛型类容梳理</h3><h4 id="为什么引入泛型"><a href="#为什么引入泛型" class="headerlink" title="为什么引入泛型"></a>为什么引入泛型</h4><ol><li>不能对加入到集合<code>ArrayList</code>中的数据类型进行约束（不安全）</li><li>遍历的时候，需要类型转换，如果集合中数据量比较大，对效率有影响</li></ol><h4 id="泛型的声明"><a href="#泛型的声明" class="headerlink" title="泛型的声明"></a>泛型的声明</h4><pre class="line-numbers language-none"><code class="language-none">interface 接口&lt;T&gt;{} 和 class 类&lt;K,V&gt;{}T,V,K不代表值，而是代表类型任意字母都可以。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="泛型的实例化"><a href="#泛型的实例化" class="headerlink" title="泛型的实例化"></a>泛型的实例化</h4><pre class="line-numbers language-none"><code class="language-none">要在类名后面指定类型参数的值(使用泛型)List&lt;String&gt; strList = new ArrayList&lt;String&gt;();Iterator&lt;Customer&gt;iterator = customers.iterator();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="自定义泛型"><a href="#自定义泛型" class="headerlink" title="自定义泛型"></a>自定义泛型</h4><ol><li><p>自定义泛型类</p><pre class="line-numbers language-none"><code class="language-none">class 类名&lt;T,R&gt;{}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li>普通成员可以使用泛型（属性、方法）</li><li>使用泛型的数组，不能初始化（因为类型不确定，无法知道开辟多少空间）</li><li>静态方法中不能使用类的泛型</li><li>泛型类的类型，是在创建对象时确定的（因为创建对象时，需要指定确定类型）</li><li>如果创建对象时，没有指定类型，默认为<code>Object</code></li></ol></li><li><p>自定义泛型接口</p><pre class="line-numbers language-none"><code class="language-none">interface 接口名&lt;T,R&gt;{}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li>接口中，静态成员也不能使用泛型（这个和泛型类规定一样）</li><li>泛型接口的类型，在继承接口或者实现接口时确定</li><li>没有指定类型，默认为<code>Object</code></li></ol></li><li><p>自定义泛型方法</p><pre class="line-numbers language-none"><code class="language-none">修饰符&lt;T,R&gt;返回类型 方法名（参数列表）{}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li>泛型方法，可以定义在普通类中，也可以定义在泛型类中</li><li>当泛型方法被调用时，类型会调用</li><li>public void eat（E e）{}，修饰符后没有&lt;T,R&gt;，eat方法不是泛型方法，而是使用了泛型</li></ol></li></ol><h4 id="泛型的继承和通配符"><a href="#泛型的继承和通配符" class="headerlink" title="泛型的继承和通配符"></a>泛型的继承和通配符</h4><ol><li><p>泛型不具备继承性</p><pre class="line-numbers language-none"><code class="language-none">List&lt;Object&gt; list = new ArrayList&lt;String&gt;()//错误<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><!--?-->:支持任意泛型类型</li><li><!--? extends A--> 支持A类以及A类的子类，规定了泛型的上限</li><li><!--?super A-->支持A类以及A的父类，不仅限于直接父类</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;泛型类容梳理&quot;&gt;&lt;a href=&quot;#泛型类容梳理&quot; class=&quot;headerlink&quot; title=&quot;泛型类容梳理&quot;&gt;&lt;/a&gt;泛型类容梳理&lt;/h3&gt;&lt;h4 id=&quot;为什么引入泛型&quot;&gt;&lt;a href=&quot;#为什么引入泛型&quot; class=&quot;headerlink&quot; ti</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 泛型" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E6%B3%9B%E5%9E%8B/"/>
+    
+    
+    <category term="技术 操作 学习 泛型" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E6%B3%9B%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义泛型类</title>
+    <link href="https://dwhboke.com/posts/20.html"/>
+    <id>https://dwhboke.com/posts/20.html</id>
+    <published>2022-05-13T05:37:00.000Z</published>
+    <updated>2022-05-13T05:38:04.343Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="自定义泛型类"><a href="#自定义泛型类" class="headerlink" title="自定义泛型类"></a>自定义泛型类</h3><pre class="line-numbers language-none"><code class="language-none">class 类名&lt;T,R...&gt;{//...表示可以有多个泛型}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="注意细节："><a href="#注意细节：" class="headerlink" title="注意细节："></a>注意细节：</h4><ol><li>普通成员可以使用泛型（属性、方法）</li><li>使用泛型的数组，不能初始化</li><li>静态方法中不能使用类的泛型</li><li>泛型类的类型，是在创建对象时确定的（因为创建对象时，需要指定确定类型）</li><li>如果在创建对象时，没有指定类型，默认为Object</li></ol><h3 id="自定义泛型接口"><a href="#自定义泛型接口" class="headerlink" title="自定义泛型接口"></a>自定义泛型接口</h3><pre class="line-numbers language-none"><code class="language-none">interface 接口名&lt;T,R...&gt;{}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="注意细节：-1"><a href="#注意细节：-1" class="headerlink" title="注意细节："></a>注意细节：</h4><ol><li>接口中，静态成员也不能使用泛型（和泛型类的规定一样）</li><li>泛型接口的类型，在接口继承接口或者类实现接口的时候确定</li><li>没有指定类型，默认为Object</li></ol><h3 id="自定义泛型方法"><a href="#自定义泛型方法" class="headerlink" title="自定义泛型方法"></a>自定义泛型方法</h3><pre class="line-numbers language-none"><code class="language-none">修饰符&lt;T,R...&gt;返回类型 方法名（T t,R r,...）{}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="注意细节：-2"><a href="#注意细节：-2" class="headerlink" title="注意细节："></a>注意细节：</h4><ol><li><p>泛型方法，可以定义在普通类中，也可以定义在泛型类中</p></li><li><p>当泛型方法被调用时，类型会确定</p></li><li><p><code>public void eat（E e）{}</code>，修饰符后面没有&lt;T,R&gt;，所以eat不是泛型方法，而是使用了类或者其他东西的泛型</p></li><li><p>泛型方法既可以使用自己声明的泛型也可以使用类定声明的泛型</p><p>例如</p><pre class="line-numbers language-none"><code class="language-none">class A&lt;R&gt;{public&lt;K&gt; void hello(R r,K k){}}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li></ol><h3 id="泛型的继承和通配符"><a href="#泛型的继承和通配符" class="headerlink" title="泛型的继承和通配符"></a>泛型的继承和通配符</h3><ol><li>泛型不具备继承性</li><li><!--?-->：支持任意泛型类型</li><li><!--?extends A-->：支持A类以及A类的子类，规定了泛型的上限</li><li><!--? super A-->：支持A类以及A类的父类，不限于直接父类，规定了泛型的下限</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;自定义泛型类&quot;&gt;&lt;a href=&quot;#自定义泛型类&quot; class=&quot;headerlink&quot; title=&quot;自定义泛型类&quot;&gt;&lt;/a&gt;自定义泛型类&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;lang</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 泛型" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E6%B3%9B%E5%9E%8B/"/>
+    
+    
+    <category term="技术 操作 学习 泛型" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E6%B3%9B%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>集合内容梳理</title>
+    <link href="https://dwhboke.com/posts/19.html"/>
+    <id>https://dwhboke.com/posts/19.html</id>
+    <published>2022-05-13T05:29:00.000Z</published>
+    <updated>2022-05-13T05:29:52.046Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="集合内容梳理"><a href="#集合内容梳理" class="headerlink" title="集合内容梳理"></a>集合内容梳理</h2><h3 id="集合和数组的区别"><a href="#集合和数组的区别" class="headerlink" title="集合和数组的区别"></a>集合和数组的区别</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ol><li>长度开始必须指定，而且一旦指定不能更改</li><li>保存的内容必须为同一类型的元素</li><li>使用数组进行添加、删除元素比较麻烦</li></ol><h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><ol><li>可以动态的保存多个对象，使用方便</li><li>提供了一系列方便的操作对象的方法</li><li>使用集合添加、删除元素代码十分简洁</li></ol><h3 id="集合的分类"><a href="#集合的分类" class="headerlink" title="集合的分类"></a>集合的分类</h3><h4 id="Collection接口："><a href="#Collection接口：" class="headerlink" title="Collection接口："></a>Collection接口：</h4><ol><li>Collection实现子类可以存放重复元素，有些不可以</li><li>Collection的实现类，有些是有序的（List），有些不是有序的（Set）</li><li>Collection实现子类可以存放多个元素，每个元素可以是Object</li><li>Collection接口没有直接的实现子类，是通过它的子接口Set和List来实现的</li><li>遍历方式：迭代器（Iterator）或者增强for</li></ol><h5 id="List接口："><a href="#List接口：" class="headerlink" title="List接口："></a>List接口：</h5><ol><li>List接口时Collection的子接口</li><li>List集合中的每一个元素都有其对应的顺序索引，即支持索引</li><li>List容器中的元素都对应一个整数型的序号记载在其容器中的位置，可以根据序号存取容器中的元素</li><li>List的常用实现类有ArrayList、LinkedList、Vector</li></ol><h6 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h6><ol><li>ArrayList是由Object数组来实现存储的</li><li>可以加入多个null</li><li>可以重复添加</li><li>基本等同于Vector，但是ArrayList线程不安全</li><li>默认首次初始化为10（无参构造器），后面每次以1.5倍扩容</li></ol><h6 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h6><ol><li>和ArrayList基本一样，但是它是线程安全的</li></ol><h6 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h6><ol><li>底层实现了双向链表和双端队列的特点</li><li>LinkedList维护了两个属性first和last，分别指向首尾结点</li><li>每个结点又有prev，next，item三个属性，通过prev指向前一个，next指向后一个，最终实现双向链表</li><li>可以添加任何元素，可以重复，包括null</li><li>线程不安全</li><li>添加删除由链表完成，所以效率很高</li></ol><h5 id="Set接口："><a href="#Set接口：" class="headerlink" title="Set接口："></a>Set接口：</h5><ol><li>无序（添加和取出顺序不一致），没有索引</li><li>不允许重复</li><li>常用实现类有HashSet、TreeSet、LinkedHashSet</li></ol><h6 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h6><ol><li>底层是HashMap，HashMap底层是由数组+链表+红黑树组成</li><li>详细请见：<a href="https://dwhboke.com/posts/12.html">https://dwhboke.com/posts/12.html</a></li></ol><h4 id="Map接口："><a href="#Map接口：" class="headerlink" title="Map接口："></a>Map接口：</h4><ol><li>常用实现类：HashMap、Hashtable、properties</li></ol><h6 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h6><ol><li>HashMap是Map接口使用最多的</li><li>Hash以Key-val对的形式存储数据</li><li>key不能重复，但是value可以重复，运行使用null键和null值</li><li>添加相同的key，则会覆盖原来的key-val，等同于修改</li><li>于HashSet一样，不保证映射的顺序，因为底层是以Hash表的形式存储</li><li>HashMap没有实现同步，线程不安全</li></ol><ol><li>底层维护了Node类型的数组table，默认null</li><li>创建对象时，，加载因子初始化为0.75</li><li>添加key-val时，通过key的哈希得到table的索引，然后判断该索引处是否有元素，没有就直接添加，如果有元素，则继续判断该元素的key和准备加入的key是否相等，如果相等就替换val，如果不等，就判断是树结构还是链表结构，做出相应处理，如果添加时候发现容量不足就要扩容</li><li>第一次添加，会扩容table为16，临界值为12（16*0.75），之后每次扩容为原来的2倍</li><li>当链表的元素超过一个值（默认为8），并且table的大小&gt;=某个值（默认为64）就会进行树化</li><li><img src="https://s2.loli.net/2022/04/24/It26u1DWaUV3io5.png"></li></ol><h6 id="Propertie"><a href="#Propertie" class="headerlink" title="Propertie"></a>Propertie</h6><ol><li>竭诚Hashtable类并且实现了Map接口，也是一种键值对的形式保存数据</li><li>使用特点和Hashtable类似</li><li>它可以用于从xxx.properties文件中，加载数据到Properties类对象，并且进行读取和修改</li></ol><h4 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h4><p>详情见：<a href="https://dwhboke.com/posts/16.html">https://dwhboke.com/posts/16.html</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;集合内容梳理&quot;&gt;&lt;a href=&quot;#集合内容梳理&quot; class=&quot;headerlink&quot; title=&quot;集合内容梳理&quot;&gt;&lt;/a&gt;集合内容梳理&lt;/h2&gt;&lt;h3 id=&quot;集合和数组的区别&quot;&gt;&lt;a href=&quot;#集合和数组的区别&quot; class=&quot;headerlink&quot; </summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 集合" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E9%9B%86%E5%90%88/"/>
+    
+    
+    <category term="技术 操作 学习 集合" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>List接口的实现类（可以重复添加）</title>
+    <link href="https://dwhboke.com/posts/18.html"/>
+    <id>https://dwhboke.com/posts/18.html</id>
+    <published>2022-05-13T05:28:00.000Z</published>
+    <updated>2022-05-13T05:29:13.987Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="List接口的实现类（可以重复添加）"><a href="#List接口的实现类（可以重复添加）" class="headerlink" title="List接口的实现类（可以重复添加）"></a>List接口的实现类（可以重复添加）</h2><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><ol><li>介绍：<code>ArrayList</code>是由数组来实现数据存储的，ArrayList基本上等同于<code>Vector</code>，除了<code>ArrayList</code>是线程不安全的，但是它效率高，在多线程情况下不建议使用ArrayList</li><li>底层：维护了一个<code>Object</code>数组，创建<code>ArrayList</code>对象，如果使用无参构造器，则初始容量为0，第一次添加扩容到10，后面每次按照1.5倍扩容</li></ol><h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><ol><li>说明：<code>LinkedLis</code>底层是双向链表和双端队列特点，可添加任何元素，包括null，线程不安全</li><li>底层：双向链表，<code>LinkedList</code>中维护了两个属性first和last分别指向头结点和尾结点，每个节点中有<code>prev</code>、<code>next</code>、<code>item</code>三个属性，prev指向前一个，通过<code>next</code>指向后一个，最终完成双向链表</li><li>效率很高</li></ol><h4 id="Victor"><a href="#Victor" class="headerlink" title="Victor"></a>Victor</h4><ol><li>和ArrayList基本相同，查询快，增删慢，线程安全，效率低</li><li>底层也是数组</li></ol><h4 id="三者的比较"><a href="#三者的比较" class="headerlink" title="三者的比较"></a>三者的比较</h4><ol><li><img src="https://s2.loli.net/2022/04/24/RNIgWZF81YjATEt.png"></li><li><img src="https://s2.loli.net/2022/04/24/O57BNdAhuHjCXIY.png"></li><li>相同点：记录插入顺序，可以重复，可以为null值</li></ol><h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><ol><li><p>增强for</p><pre class="line-numbers language-none"><code class="language-none">for(Object o:col){}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ol><ol start="2"><li><p>使用迭代器</p><pre class="line-numbers language-none"><code class="language-none">Iterator iter = col.iterator();while(iter.hasNext()){Object o = iter.next();}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li></ol><ol start="3"><li><p>普通for循环</p><p>注：增强for循环的底层就是迭代器</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;List接口的实现类（可以重复添加）&quot;&gt;&lt;a href=&quot;#List接口的实现类（可以重复添加）&quot; class=&quot;headerlink&quot; title=&quot;List接口的实现类（可以重复添加）&quot;&gt;&lt;/a&gt;List接口的实现类（可以重复添加）&lt;/h2&gt;&lt;h4 id=&quot;A</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 集合" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E9%9B%86%E5%90%88/"/>
+    
+    
+    <category term="技术 操作 学习 集合" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TreeSet和TreeMap</title>
+    <link href="https://dwhboke.com/posts/17.html"/>
+    <id>https://dwhboke.com/posts/17.html</id>
+    <published>2022-05-13T05:27:00.000Z</published>
+    <updated>2022-05-13T05:34:53.827Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="TreeSet和TreeMap"><a href="#TreeSet和TreeMap" class="headerlink" title="TreeSet和TreeMap"></a>TreeSet和TreeMap</h3><h4 id="相同点："><a href="#相同点：" class="headerlink" title="相同点："></a>相同点：</h4><ol><li>两者均是为了实现排序集合而存在的</li><li>两者构造器很多，都有空参构造器和传入一个Comparator的匿名对象的构造器，然后通过重写的Comparator方法进行排序</li><li>当没有传入Comparator时，会以你添加的对象的类型实现的Comparator接口的方法进行排序</li><li>TreeMap是TreeSet底层结构</li><li>运行速度都比hash慢</li></ol><h4 id="不同点："><a href="#不同点：" class="headerlink" title="不同点："></a>不同点：</h4><ol><li>TreeSet只能存储一个对象，但是TreeMap存储两个对象Key和Value（仅仅对Key有序）</li><li>TreeSet不能有重复对象（但是可以通过重写Comparator来改变），TreeMap可以存在（也可以改变）</li><li>TreeMap底层采用红黑树实现</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;TreeSet和TreeMap&quot;&gt;&lt;a href=&quot;#TreeSet和TreeMap&quot; class=&quot;headerlink&quot; title=&quot;TreeSet和TreeMap&quot;&gt;&lt;/a&gt;TreeSet和TreeMap&lt;/h3&gt;&lt;h4 id=&quot;相同点：&quot;&gt;&lt;a href</summary>
+      
+    
+    
+    
+    <category term="技术 学习 java 集合" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E9%9B%86%E5%90%88/"/>
+    
+    
+    <category term="技术 操作 学习 集合" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Collections工具类</title>
@@ -314,108 +513,6 @@
     
     
     <category term="技术 操作 学习 java泛型" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-java%E6%B3%9B%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>集合的基础体系</title>
-    <link href="https://dwhboke.com/posts/4.html"/>
-    <id>https://dwhboke.com/posts/4.html</id>
-    <published>2022-03-06T06:54:00.000Z</published>
-    <updated>2022-04-23T03:12:44.706Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="集合框架体系图"><a href="#集合框架体系图" class="headerlink" title="集合框架体系图"></a>集合框架体系图</h3><h4 id="单列集合"><a href="#单列集合" class="headerlink" title="单列集合"></a>单列集合</h4><p><img src="https://s2.loli.net/2022/03/06/J5Cm4nMgj7KLZuE.png"></p><h4 id="双列集合"><a href="#双列集合" class="headerlink" title="双列集合"></a>双列集合</h4><p><img src="https://s2.loli.net/2022/03/06/E2GxDNSkstVJ86j.png"></p><h3 id="集合的优点"><a href="#集合的优点" class="headerlink" title="集合的优点"></a>集合的优点</h3><ol><li>可以<strong>动态保存</strong>任意的多个对象，使用很方便</li><li>提供了一系列方便的操作对象的方法：add、remove、set、get等等</li><li>使用集合进行添加，删除新元素的示意代码简洁明了</li></ol><h3 id="集合简单的使用"><a href="#集合简单的使用" class="headerlink" title="集合简单的使用"></a>集合简单的使用</h3><h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>一次放一个数据所以叫单列集合</p><pre class="line-numbers language-none"><code class="language-none">ArrayList arrayList = new ArrayList();arrayList.add("jake");arrayList.add("tom");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>一次放两个数据所以叫双列集合</p><pre class="line-numbers language-none"><code class="language-none">HashMap hashMap = new HashMap();hashMap.put("NO1","北京");hashMap.put("NO2","上海");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="Collection接口和常用方法"><a href="#Collection接口和常用方法" class="headerlink" title="Collection接口和常用方法"></a>Collection接口和常用方法</h3><h4 id="collection接口实现类的特点"><a href="#collection接口实现类的特点" class="headerlink" title="collection接口实现类的特点"></a>collection接口实现类的特点</h4><pre class="line-numbers language-none"><code class="language-none">public interface Collection&lt;E&gt; extends lterable&lt;E&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol><li><code>collection</code>实现子类可以存放多个元素，每个元素可以是Object</li><li>有些<code>Collection</code>的实现类，可以存放重复的元素，有些不可以</li><li>有些<code>Collection</code>的实现类，有些是有序的(List)，有些不是有序的(Set)</li><li><code>Collection</code>接口没有直接的实现子类，是通过它的子接口<code>Set</code>和<code>List</code>来实现的</li></ol><h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ol><li><code>add</code>：添加单个元素</li><li><code>remove</code>：删除指定元素</li><li><code>contains</code>：查找元素是否存在</li><li><code>size</code>：获取元素个数</li><li><code>isEmpty</code>：判断是否为空</li><li><code>clear</code>：清空</li><li><code>addAll</code>：添加多个元素</li><li><code>containsAll</code>：查找多个元素是否都存在</li><li><code>removeAll</code>：删除多个元素</li></ol><h3 id="Vector和ArrayList的比较"><a href="#Vector和ArrayList的比较" class="headerlink" title="Vector和ArrayList的比较"></a>Vector和ArrayList的比较</h3><p><img src="https://s2.loli.net/2022/04/09/HDCExkgSdnGTp4J.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;集合框架体系图&quot;&gt;&lt;a href=&quot;#集合框架体系图&quot; class=&quot;headerlink&quot; title=&quot;集合框架体系图&quot;&gt;&lt;/a&gt;集合框架体系图&lt;/h3&gt;&lt;h4 id=&quot;单列集合&quot;&gt;&lt;a href=&quot;#单列集合&quot; class=&quot;headerlink&quot; titl</summary>
-      
-    
-    
-    
-    <category term="技术 学习 java 集合" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0-java-%E9%9B%86%E5%90%88/"/>
-    
-    
-    <category term="技术 操作 学习 java集合" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E5%AD%A6%E4%B9%A0-java%E9%9B%86%E5%90%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何在GitHub上搭建hexo博客</title>
-    <link href="https://dwhboke.com/posts/3.html"/>
-    <id>https://dwhboke.com/posts/3.html</id>
-    <published>2022-03-05T10:39:00.000Z</published>
-    <updated>2022-03-06T04:02:28.897Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>这是一篇关于如何搭建 hexo 博客的文章。</p><h2 id="一、大致所需要用到的工具或者网站"><a href="#一、大致所需要用到的工具或者网站" class="headerlink" title="一、大致所需要用到的工具或者网站"></a>一、大致所需要用到的工具或者网站</h2><ol><li>GitHub</li><li>Git Bash</li><li>HEXO</li></ol><h2 id="二、主要步骤"><a href="#二、主要步骤" class="headerlink" title="二、主要步骤"></a>二、主要步骤</h2><ol><li>配置好上述工具</li><li>创建一个 GitHub 仓库</li><li>GitHub 上生成 SSH Keys</li><li>生成本地</li><li>发布到互联网上</li></ol><h2 id="三、具体操作"><a href="#三、具体操作" class="headerlink" title="三、具体操作"></a>三、具体操作</h2><h3 id="1-安装Git-和-HEXO"><a href="#1-安装Git-和-HEXO" class="headerlink" title="1. 安装Git 和 HEXO"></a>1. 安装Git 和 HEXO</h3><p>这个东西直接去官方网站下载就行了。<a href="https://git-scm.com/">Git 官网</a> <a href="https://hexo.io/zh-cn/">HEXO官网</a></p><h3 id="2-创建一个GitHub-仓库"><a href="#2-创建一个GitHub-仓库" class="headerlink" title="2. 创建一个GitHub 仓库"></a>2. 创建一个GitHub 仓库</h3><p>在注册好GitHub账号之后，然后去创建一个新的仓库(点击此处的<code>New</code>)</p><p><img src="https://s2.loli.net/2022/03/05/ufapyQUNXJ7CzIh.png"></p><p>然后此处的<code>Repository name</code>和你的<code>Owne</code>r要一样(比如，我的<code>owner</code>是dgithubq,那么<code>name</code>就填dgithubq.github.io)。页面其他的选项默认即可。</p><p><img src="https://s2.loli.net/2022/03/05/oY1fNxZgEMJ6mwp.png"></p><p>然后<code>Add a README file</code>需要勾选上。</p><p>到此，点击创建之后，那么你的存储库就已经建成功了，你的博客网址就是你刚才的Repository name。</p><h3 id="3-生成一个SSH-Keys"><a href="#3-生成一个SSH-Keys" class="headerlink" title="3. 生成一个SSH Keys"></a>3. 生成一个SSH Keys</h3><p>这个东西很重要，因为后面上传到网络上面去的时候需要它，所以这一步要仔细一点。但是也不会特别的难。</p><p>首先：我们在桌面上进入任何一个文件夹，然后打开下载好的Git Bash，然后我们需要敲打以下的命令来检查ssh是否安装，默认一般是已经安装了：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>然后敲打第二个命令来生成SSH Keys（引号中填自己的邮箱）：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"xxx@xxx.xxx"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>此时会在我们的文件夹中建立一个ssh，一般会存放在<code>C:\用户\Administrator\.ssh</code>中。</p><p>找到文件夹之后，打开其中的id_rsa.pub文件，完全复制其中的内容，然后再去打开GitHub。</p><p>在个人设置中找到这个地方：</p><p><img src="https://s2.loli.net/2022/03/05/c1yMPDjgQO5J4wp.png"></p><p>在里面New SSH key，然后会看到以下需要填的内容：</p><p> <img src="https://s2.loli.net/2022/03/05/zGSFwEV7UThADBQ.png"></p><p>Title中随便取，无所谓，key中填入刚才<code>.pub</code>文件里复制的内容，然后在git bash中输入以下命令测试是否绑定成功即可：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="4-生成本地博客"><a href="#4-生成本地博客" class="headerlink" title="4. 生成本地博客"></a>4. 生成本地博客</h3><p>去一个自己喜欢的地方建一个文件夹，然后在此文件夹中打开git bash,然后开始敲命令：</p><p>(1) 初始化hexo</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果没有出现 INFO Start blogging with Hexo！ 就说明有问题，重新执行上面的命令即可，成功之后，刚才的文件夹中会多出很多文件，比如：</p><p><img src="https://s2.loli.net/2022/03/05/owY23BOdip7jq8W.png"></p><p>(2) 静态生成hexo本地页面</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>成功后会出现一个Http://xxx的网址，可以去网页中打开，这就是同志们博客的本地生成的页面。</p><h3 id="5-将博客发布到互联网上"><a href="#5-将博客发布到互联网上" class="headerlink" title="5. 将博客发布到互联网上"></a>5. 将博客发布到互联网上</h3><p>(1) 在上一步中生成的文件中，打开_config.yml文件，修改deploy中的东西，一般在最下面。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deploy:type: <span class="token function">git</span>repository: https://github.com/XXX/XXX.github.io.gitbranch: main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>(2)在你的博客文件下打开git bash输入以下命令，这是安装hexo-deployer-git自动部署工具</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>生成页面</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>上传到GitHub仓库(很多人第一次上传，由于GitHub是一个国外的服务器，所以第一次会非常难成功，如果没有弹出输入GitHub账号的弹窗，请多试验几次，总会成功的，博主命不好，试了很多次才成功，总之坚持就是胜利！)</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>出现这个就是成功了：</p><p><img src="https://s2.loli.net/2022/03/05/Kb6NrcswUgy31u5.png"></p><p>这第一个弹窗是输入用户名，下面还有一个弹窗需要注意了！！！</p><p><img src="https://s2.loli.net/2022/03/05/PZ3DCt4bFgI1GzY.png"></p><p>出现这个弹窗之后，要去到GitHub中个人设置里找到Developer setting开发者设置中创建一个令牌，随便取一个名字，权限为了减少麻烦，建议全选，然后把出现的序列号填入第二个弹窗中。(千万不要直接输入GitHub的密码，可能会导致错误，一旦错误，以上步骤又要重来)</p><p>上传成功之后，你的博客就传到互联网上了，你的博客网址就是你的仓库名。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是本人自己创建博客的步骤，个人觉得比较详细，应该不会有太大问题，祝各位好运啦~~~!</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;这是一篇关于如何搭建 hexo 博客的文章。&lt;/p&gt;
-&lt;h2 id=&quot;一、大致所需要用到的工具或者网站&quot;&gt;&lt;a href=&quot;#一、大致所需要</summary>
-      
-    
-    
-    
-    <category term="技术 学习" scheme="https://dwhboke.com/categories/%E6%8A%80%E6%9C%AF-%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="技术 操作 想法" scheme="https://dwhboke.com/tags/%E6%8A%80%E6%9C%AF-%E6%93%8D%E4%BD%9C-%E6%83%B3%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客与博主</title>
-    <link href="https://dwhboke.com/posts/1.html"/>
-    <id>https://dwhboke.com/posts/1.html</id>
-    <published>2022-03-04T13:00:00.000Z</published>
-    <updated>2022-03-06T04:14:59.793Z</updated>
-    
-    <content type="html"><![CDATA[<p>相遇皆是缘分</p><h3 id="为什么建博客？"><a href="#为什么建博客？" class="headerlink" title="为什么建博客？"></a>为什么建博客？</h3><p>肿么说了! 纯属个人兴趣，好玩，唉，就是玩!嘻嘻! 会有些成就感吧,拥有一个自己的博客写一些自己感兴趣的事或物,不是一件很酷的事嘛!</p><h3 id="展望博客"><a href="#展望博客" class="headerlink" title="展望博客"></a>展望博客</h3><p>我会整理一些个人所学的知识或生活方面有兴趣的事发到博客上供大家观摩</p><h3 id="关于博主"><a href="#关于博主" class="headerlink" title="关于博主"></a>关于博主</h3><p>一位准备放飞理想的有志青年，常年emo，喜欢dyn</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">林深时见鹿，海蓝时见鲸，梦醒时见你<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>溜了溜了！</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;相遇皆是缘分&lt;/p&gt;
-&lt;h3 id=&quot;为什么建博客？&quot;&gt;&lt;a href=&quot;#为什么建博客？&quot; class=&quot;headerlink&quot; title=&quot;为什么建博客？&quot;&gt;&lt;/a&gt;为什么建博客？&lt;/h3&gt;&lt;p&gt;肿么说了! 纯属个人兴趣，好玩，唉，就是玩!嘻嘻! 会有些成就感吧,拥有</summary>
-      
-    
-    
-    
-    <category term="生活" scheme="https://dwhboke.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-    <category term="想法" scheme="https://dwhboke.com/tags/%E6%83%B3%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试文章</title>
-    <link href="https://dwhboke.com/posts/2.html"/>
-    <id>https://dwhboke.com/posts/2.html</id>
-    <published>2022-03-04T06:00:00.000Z</published>
-    <updated>2022-03-21T13:56:20.678Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre><code>本章仅用于测试！！！    --dwh</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;本章仅用于测试！！！
-
-
-    --dwh&lt;/code&gt;&lt;/pre&gt;
-</summary>
-      
-    
-    
-    
-    <category term="生活" scheme="https://dwhboke.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-    <category term="试验" scheme="https://dwhboke.com/tags/%E8%AF%95%E9%AA%8C/"/>
     
   </entry>
   
